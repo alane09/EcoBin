@@ -26,6 +26,8 @@ function Home() {
                     <p style={{ textAlign: 'justify' }}>
                         L'introduction de l'Internet des objets (IoT) et des systèmes embarqués dans la gestion des déchets représente une approche moderne visant à remédier à ces lacunes. En surveillant en temps réel le niveau de remplissage des conteneurs à déchets à l'aide de capteurs IoT et en optimisant les itinéraires de collecte grâce à des systèmes embarqués, il est possible de rendre les processus de collecte et de transport plus efficaces, durables et économiques. Ces technologies offrent également la possibilité d'impliquer activement la communauté dans la gestion des déchets, en favorisant une sensibilisation accrue et en encourageant des comportements plus durables. En combinant l'efficacité des données fournies par l'IoT avec les fonctionnalités des systèmes embarqués, il est ainsi possible de mettre en œuvre des pratiques de gestion des déchets plus efficaces et respectueuses de l'environnement.
                     </p>
+                    <br />
+                    <br />
 
                     <div style={{ textAlign: 'center' }}>
                         <img src={p1} alt="Gestion moderne des déchets" />
