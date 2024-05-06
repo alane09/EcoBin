@@ -1,0 +1,112 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9fa;
+    /* Set background color */
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #ffffff;
+    /* Navbar background color */
+}
+
+.navbar-brand {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand img {
+    max-width: 100%;
+    height: auto;
+}
+
+.navbar-nav .nav-link {
+    font-weight: bold;
+    color: #343a40 !important;
+    /* Navbar link color */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #212529 !important;
+    /* Navbar link hover color */
+}
+
+/* Container styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Center the container horizontally */
+    padding: 20px;
+    /* Add padding to the container */
+    background-color: #c7e9c0;
+    /* Use a color related to the ecosystem */
+    border-radius: 10px;
+    /* Add border-radius for a rounded appearance */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+/* Remove borders from images */
+.container img {
+    border: none;
+    /* Remove borders */
+    max-width: 100%;
+    /* Ensure images don't exceed container width */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+/* Page title styles */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Section title styles */
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Paragraph styles */
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        /* Adjust padding for smaller screens */
+    }
+}
+.nav-item-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px 15px;
+    transition: background-color 0.3s;
+}
+
+.nav-item-box:hover {
+    background-color: #f8f9fa;
+}
+
+.nav-link {
+    color: #343a40 !important;
+    /* Change text color if needed */
+}
+
+.nav-link:hover {
+    color: #212529 !important;
+    /* Change text color on hover if needed */
+}

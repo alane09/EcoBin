@@ -1,0 +1,20 @@
+.container {
+    background-color: #c7e9c0;
+    /* Use a color related to the ecosystem */
+    padding: 20px;
+    /* Add padding to the container */
+    border-radius: 10px;
+    /* Add border-radius for a rounded appearance */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+/* Remove borders from images */
+.container img {
+    border: none;
+    /* Remove borders */
+    max-width: 100%;
+    /* Ensure images don't exceed container width */
+    height: auto;
+    /* Maintain aspect ratio */
+}
