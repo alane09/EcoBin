@@ -1,0 +1,51 @@
+/* TrashCanTable.css */
+
+/* Style pour la page */
+.page-container {
+    background-color: #e6f7ea; /* Background vert */
+    padding: 20px; /* Espacement intérieur */
+  }
+  
+  /* Style pour le titre de la page */
+  .page-title {
+    color: #333; /* Couleur du texte */
+    text-align: center; /* Centrer le texte */
+  }
+  
+  /* Style pour le tableau */
+  .trash-table {
+    border-collapse: collapse; /* Fusionner les bordures */
+    width: 100%; /* Largeur du tableau */
+  }
+  
+  /* Style pour les cellules de l'en-tête */
+  .table-header th {
+    border: 2px solid black; /* Bordure */
+    padding: 15px; /* Espacement intérieur */
+    text-align: center; /* Alignement du texte */
+    font-size: 20px; /* Taille de la police */
+  }
+  
+  /* Style pour les cellules du corps */
+  .trash-table td {
+    border: 2px solid black; /* Bordure */
+    padding: 15px; /* Espacement intérieur */
+    text-align: center; /* Alignement du texte */
+    font-size: 18px; /* Taille de la police */
+  }
+  
+  /* Style pour le taux de remplissage */
+  .fill-rate {
+    font-weight: bold; /* Texte en gras */
+  }
+  
+  /* Style pour les poubelles fermées */
+  .closed {
+    color: red; /* Texte en rouge */
+  }
+  
+  /* Style pour les poubelles ouvertes */
+  .open {
+    color: green; /* Texte en vert */
+  }
+  

@@ -1,0 +1,57 @@
+/* TrashCanTable.css */
+
+/* Style pour la page */
+.page-container {
+    background-color: #f3f3f3;
+    padding: 20px;
+  }
+  
+  /* Style pour le titre de la page */
+  .page-title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Style pour le conteneur des données */
+  .data-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  /* Style pour les poubelles */
+  .trash-can {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  /* Style pour le pourcentage de remplissage */
+  .fill-rate {
+    font-weight: bold;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  /* Style pour les notifications */
+  .notification {
+    width: 20px;
+    height: 100px;
+    border-radius: 5px;
+  }
+  
+  /* Style pour la poubelle remplie */
+  .filled {
+    background-color: red;
+  }
+  
+  /* Style pour la poubelle presque remplie */
+  .almost-filled {
+    background-color: yellow;
+  }
+  
+  /* Style pour la poubelle vide */
+  .empty {
+    background-color: green;
+  }
+  

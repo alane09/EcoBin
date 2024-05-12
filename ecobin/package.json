@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
+    "bootstrap": "^5.3.3",
     "chart.js": "^4.4.2",
+    "firebase": "^10.11.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-doc-viewer": "^0.1.5",
