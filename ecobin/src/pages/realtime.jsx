@@ -1,59 +1,119 @@
-import React, { useState, useEffect } from 'react';
-import firebase from '../firebase';
+import React, { useState, useEffect, useRef } from 'react';
+import Chart from 'chart.js/auto'; // Import Chart.js
+import { generateTrashCans } from './old';
+import './realtime.css'; // Import the CSS file for styles
 
-const TrashCanTable = () => {
-  const [trashCans, setTrashCans] = useState([]);
+const Realtime = () => {
+  const [alerts, setAlerts] = useState([]);
+  const [fillRateData, setFillRateData] = useState({});
+  const chartRef = useRef(null);
 
   useEffect(() => {
-    // Créer une référence à l'emplacement des données dans Realtime Database
-    const trashCansRef = firebase.database().ref('trashCans');
+    const trashCans = generateTrashCans();
+    calculateFillRateData(trashCans);
+  }, []); // Empty dependency array ensures this effect runs only once, on mount
 
-    // Écouter les modifications de données en temps réel
-    const fetchData = () => {
-      trashCansRef.on('value', (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-          // Convertir les données en un tableau d'objets
-          const trashCansArray = Object.entries(data).map(([key, value]) => ({
-            id: key,
-            ...value
-          }));
-          setTrashCans(trashCansArray);
+  useEffect(() => {
+    // Create chart after rendering the canvas
+    const ctx = document.getElementById('fillRateChart');
+    if (ctx) {
+      chartRef.current = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Supérieur à 80%', 'Inférieur à 80%'],
+          datasets: [{
+            label: 'Fill Rate',
+            data: [fillRateData.above80 || 0, fillRateData.below80 || 0],
+            backgroundColor: [
+              '#8b0000', // Red color for above 80%
+              '#00008b'   // Blue color for below 80%
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false, // Allows the chart to not maintain aspect ratio
+          plugins: {
+            title: {
+              display: true,
+              text: 'Graphique de pourcentage de remplissage', // Add the title here
+              position: 'top', // Position the title above the chart
+              align: 'center', // Align the title to the center
+              font: {
+                size: 16
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  let label = context.label || '';
+                  if (label) {
+                    label += ': ';
+                  }
+                  if (context.parsed) {
+                    label += context.parsed + '%';
+                  }
+                  return label;
+                }
+              }
+            }
+          }
         }
       });
-    };
+    }
 
-    fetchData();
-
-    // Nettoyer le listener lorsque le composant est démonté
+    // Clean up
     return () => {
-      trashCansRef.off('value');
+      if (chartRef.current) {
+        chartRef.current.destroy();
+      }
     };
+  }, [fillRateData]); // Re-run this effect whenever fillRateData changes
+
+  useEffect(() => {
+    // Calculate the alerts when the component mounts
+    calculateAlerts(fillRateData);
   }, []);
 
+  const calculateAlerts = (fillRateData) => {
+    const above80 = fillRateData.above80 || 0;
+    const total = fillRateData.total || 0;
+    const globalSituation = above80 > 0 ? 'Fermée' : 'Ouverte';
+    const fillRate = above80 > 0 ? (above80 / total) * 100 : null;
+
+    setAlerts([
+      {
+        id: 'global',
+        situation: globalSituation,
+        fillRate: fillRate
+      }
+    ]);
+  };
+
+  const calculateFillRateData = (trashCans) => {
+    const total = trashCans.length;
+    const above80 = trashCans.filter(trashCan => trashCan.fillRate > 80).length;
+    const below80 = total - above80;
+    setFillRateData({ total, above80, below80 });
+  };
+
   return (
-    <div>
-      <h2>Liste des poubelles</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Localisation</th>
-            <th>Taux de remplissage (%)</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {trashCans.map(trashCan => (
-            <tr key={trashCan.id}>
-              <td>{trashCan.location}</td>
-              <td>{trashCan.fillRate}</td>
-              <td>{trashCan.date}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="realtime-container">
+      <div className="alert-container">
+        {alerts.map(alert => (
+          <div key={alert.id} className={`alert alert-${alert.situation}`}>
+            <span>Situation de la Poubelle : </span>
+            <span>{alert.situation}</span>
+            {alert.fillRate !== null && <span>{` (${alert.fillRate.toFixed(2)}%)`}</span>}
+          </div>
+        ))}
+      </div>
+      <div className="chart-container">
+        <canvas id="fillRateChart" width="400" height="400"></canvas> {/* Set canvas size here */}
+      </div>
     </div>
   );
 };
 
-export default TrashCanTable;
+export default Realtime;

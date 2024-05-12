@@ -1,0 +1,37 @@
+[
+    {
+        "id": "1",
+        "location": "Place A",
+        "fillRate": 70,
+        "date": "2024-05-10",
+        "situation": "ouverte"
+    },
+    {
+        "id": "2",
+        "location": "Place B",
+        "fillRate": 90,
+        "date": "2024-05-11",
+        "situation": "fermée"
+    },
+    {
+        "id": "3",
+        "location": "Place C",
+        "fillRate": 40,
+        "date": "2024-05-12",
+        "situation": "ouverte"
+    },
+    {
+        "id": "4",
+        "location": "Place D",
+        "fillRate": 20,
+        "date": "2024-05-13",
+        "situation": "ouverte"
+    },
+    {
+        "id": "5",
+        "location": "Place E",
+        "fillRate": 85,
+        "date": "2024-05-14",
+        "situation": "fermée"
+    }
+]

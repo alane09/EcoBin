@@ -1,13 +1,9 @@
+
 import React, { useState } from 'react';
-import './old.css'; // Importer le fichier CSS pour les styles
+import './old.css';
 
 const TrashCanTable = () => {
-  // State pour stocker les données des poubelles
-  const [trashCans, setTrashCans] = useState(Array.from({ length: 500 }, (_, index) => ({
-    id: index + 1,
-    fillRate: Math.floor(Math.random() * 100) + 1,
-    date: '2024-05-12',
-  })));
+  const [trashCans, setTrashCans] = useState(generateTrashCans());
 
   return (
     <div className="page-container">
@@ -36,4 +32,13 @@ const TrashCanTable = () => {
   );
 };
 
+const generateTrashCans = () => {
+  return Array.from({ length: 500 }, (_, index) => ({
+    id: index + 1,
+    fillRate: Math.floor(Math.random() * 100) + 1,
+    date: '2024-05-12',
+  }));
+};
+
 export default TrashCanTable;
+export { generateTrashCans };

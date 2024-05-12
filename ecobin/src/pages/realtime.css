@@ -54,4 +54,67 @@
   .empty {
     background-color: green;
   }
-  
+.alert-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 16px;
+  background-color: #fff
+}
+
+.alert {
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.alert-Fermée {
+  color: #f00;
+  background-color: #fff;
+}
+
+.alert-Ouverte {
+  color: #0f0;
+  background-color: #fff;
+}
+.realtime-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.chart-container {
+  width: 80%;
+  max-width: 600px;
+  /* Adjust max-width according to your preference */
+  margin-top: 20px;
+}.realtime-container {
+  position: relative;
+}
+
+.alert-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.chart-container {
+  width: 80%;
+  max-width: 600px;
+  /* Adjust max-width according to your preference */
+  margin: auto;
+  /* Center the chart horizontally */
+  margin-top: 50px;
+  /* Add margin to separate from the alerts */
+}
